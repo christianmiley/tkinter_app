@@ -33,7 +33,6 @@ Design your own app. It must hit all the same technical requirements listed in e
 | `app.py` | Your main working file — you'll build in this across Parts 1–4 |
 | `code_review_sample.py` | A provided code sample you'll review in Part 4 |
 | `my_app_spec.md` | Design document template — Path B students fill this out first |
-| `career_plan.txt` | Career reflection prompts for Part 5 |
 
 ---
 
