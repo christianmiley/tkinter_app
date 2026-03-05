@@ -92,8 +92,6 @@ You will be assessed on your commit history, so make them count.
 
 ## Part 1: The Window & Widgets
 
-**Outcomes covered:** Explain the characteristics and capabilities of Windows apps · Add widgets to a GUI using Tkinter
-
 ### Background
 
 Desktop apps are different from websites and scripts in an important way: they are **event-driven**. Nothing happens until the user does something — clicks a button, types in a field, selects an item. Your code doesn't run top-to-bottom; it waits, listens, and responds.
@@ -144,8 +142,6 @@ git push origin main
 
 ## Part 2: Layouts & Navigation
 
-**Outcomes covered:** Create advanced GUIs using different layouts in Tkinter
-
 ### Background
 
 Tkinter has three layout managers, and experienced developers use them deliberately:
@@ -188,8 +184,6 @@ git push origin main
 ---
 
 ## Part 3: Functional Code Behind the GUI
-
-**Outcomes covered:** Develop functional code behind a graphical user interface in Tkinter
 
 ### Background
 
@@ -235,8 +229,6 @@ git push origin main
 
 ## Part 4: Ethical Design & Code Review
 
-**Outcomes covered:** Discuss the legal and ethical components of user interfaces [Inclusive] · Participate in a peer code review
-
 ### Part 4A: Code Review
 
 Open `code_review_sample.py` and run it. Read through the code carefully. Then write your review in a file called `code_review.txt` (create this file in your project).
@@ -272,8 +264,8 @@ Read through the following principles, then audit your own app against them.
 - **Data privacy** — Where is user data stored? Who can access it? Your app saves to a local file — note that this means data stays on the user's machine, which is good.
 
 **Deliverable:** Add a section to `code_review.txt` called `MY APP AUDIT` and document:
-- [ ] 3 specific accessibility or ethical issues you found in your own app
-- [ ] The change you made to fix each one (with before/after code snippets if relevant)
+- [ ] One specific accessibility or ethical issue you found in your own app
+- [ ] The change you made to fix it (with before/after code snippets if relevant)
 - [ ] One thing your app does *well* from an ethical/inclusive design standpoint
 
 ### Commit Checklist
@@ -292,21 +284,13 @@ git push origin main
 
 ---
 
-## Part 5: Final Polish & Career Plan
-
-**Outcomes covered:** Select and use appropriate communication tools for programmers · Create a personal career plan [Self-Aware]
-
-### Part 5A: Final Polish & Communication Reflection
+## Part 5: Final Polish & Communication Reflection
 
 Spend the first portion of this session finishing anything incomplete, fixing any remaining bugs, and making your app feel polished. Then write a short section at the top of your `code_review.txt` (or a new file `dev_log.txt`) that answers:
 
 1. What communication tools would a real development team use on a project like this? Name at least 3 (e.g. GitHub Issues, Slack, pull requests, project boards) and briefly describe what each is used for.
 2. Look at your Git commit history. Does it tell the story of how your project developed? What would you do differently with your commits next time?
 3. What was the hardest part of this project technically? How did you work through it?
-
-### Part 5B: Career Plan
-
-Open `career_plan.txt` and respond to each prompt. This is a personal reflection — there are no wrong answers, only shallow ones. Write in full sentences.
 
 ### Final Commit
 
@@ -335,11 +319,9 @@ Then share your GitHub repository link with your instructor.
 | Part 3 | Functional Code | 30 |
 | Part 4A | Code Review | 15 |
 | Part 4B | Ethical UI Audit | 10 |
-| Part 5A | Dev Communication Reflection | 5 |
+| Part 5 | Dev Communication Reflection | 5 |
 | Git History | Quality of commits across all parts | 5 |
 | **Total** | | **100** |
-
-*Career Plan (`career_plan.txt`) is submitted as a separate assignment.*
 
 ---
 
