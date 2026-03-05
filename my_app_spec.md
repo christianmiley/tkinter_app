@@ -159,5 +159,3 @@ Use this to track your progress. Check off each item as you complete it.
 ## Anything Else
 
 Is there anything unusual or ambitious about your design that your instructor should know about?
-
-

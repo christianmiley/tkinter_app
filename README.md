@@ -1,4 +1,4 @@
-# GUI & Teamwork: Personal Productivity App
+# GUI & Teamwork: Personal App Project
 ### A Multi-Part Programming Project
 
 ---
@@ -13,40 +13,51 @@ You will also practice real-world developer habits: using **Git and GitHub** to 
 
 ## Choose Your Path
 
-You have two options. Pick one before you write any code.
+Pick one before you write any code.
 
 ### 🗂 Path A: Personal Productivity App
-Follow the provided specification. You will build a productivity app with a task manager, study timer, and grade calculator. Starter scaffolding is provided in `scaffold.py` and `app.py` to get you going quickly.
+Follow the provided spec. You will build a productivity app with a task manager, study timer, and grade calculator. The starter code in `app.py` gives you a working structure to build from — read through it before starting Part 1.
 
 ### 🎨 Path B: Your Own App
-Design your own app. It must hit all the same technical requirements, but the theme, features, and purpose are entirely up to you. Fill out `my_app_spec.md` before you begin coding — this is your design document and your first Git commit.
+Design your own app. It must hit all the same technical requirements listed in each Part, but the theme, features, and purpose are entirely up to you. Fill out `my_app_spec.md` before you begin coding — this is your design document and your first Git commit.
 
-> **Not sure?** Go with Path A. You can always make it your own by customizing colors, fonts, and feature details as you build.
+> **Not sure?** Go with Path A. You can always personalize it with your own colors, fonts, and feature ideas as you go.
 
 ---
 
-## Git Setup (Do This First — Every Student)
+## Files in This Project
 
-You will use Git and GitHub to save your progress. Every Part ends with a commit. This mirrors how real development teams track their work.
+| File | What it is |
+|------|-----------|
+| `README.md` | This document — read it before anything else |
+| `app.py` | Your main working file — you'll build in this across Parts 1–4 |
+| `code_review_sample.py` | A provided code sample you'll review in Part 4 |
+| `my_app_spec.md` | Design document template — Path B students fill this out first |
+| `career_plan.txt` | Career reflection prompts for Part 5 |
+
+---
+
+## Git Setup — Do This Before Part 1
+
+You will use Git and GitHub to save your progress at the end of every Part. This mirrors how real developers track their work.
 
 ### Step 1: Create a GitHub Account
-Go to [github.com](https://github.com) and create a free account if you don't have one.
+Go to [github.com](https://github.com) and sign up for a free account if you don't have one.
 
 ### Step 2: Create a New Repository
 - Click the **+** icon → **New repository**
-- Name it something like `productivity-app` or your own app name
-- Set it to **Public**
+- Name it something like `productivity-app` or your own app's name
+- Set visibility to **Public**
 - Check **"Add a README file"**
 - Click **Create repository**
 
 ### Step 3: Connect to Your Project
 
 **On Replit:**
-1. Open your Repl and click the **Git** icon in the left sidebar (looks like a branch)
-2. Click **"Connect to GitHub"** and authorize Replit
-3. Click **"Connect to an existing GitHub repository"**
-4. Select the repo you just created
-5. You're connected — you'll stage, commit, and push from this panel throughout the project
+1. Open your Repl and look for the **Git** icon in the left sidebar (it looks like a branch)
+2. Click **"Connect to GitHub"** and follow the authorization steps
+3. Select **"Connect to an existing GitHub repository"** and choose the one you just created
+4. Your project is now linked — you'll commit and push from this panel throughout the project
 
 **On the command line (local development):**
 ```bash
@@ -55,14 +66,14 @@ cd YOUR_REPO_NAME
 ```
 
 ### Step 4: Add Your Project Files
-Copy `app.py`, `scaffold.py`, `code_review_sample.py`, and (if Path B) `my_app_spec.md` into your project folder/Repl.
+Upload or copy `app.py`, `code_review_sample.py`, `my_app_spec.md`, and `career_plan.txt` into your Repl or local folder.
 
-### Step 5: Your First Commit
+### Step 5: Make Your First Commit
 
-**On Replit Git panel:**
-1. You'll see your new files listed under "Changes"
-2. Click the **+** next to each file to stage it
-3. Type a commit message in the box: `Initial commit: project files added`
+**On Replit:**
+1. Open the Git panel — you'll see your new files listed under "Changes"
+2. Click **+** next to each file to stage it
+3. Type a commit message: `Initial commit: project files added`
 4. Click **Commit & Push**
 
 **On the command line:**
@@ -72,66 +83,62 @@ git commit -m "Initial commit: project files added"
 git push origin main
 ```
 
-> ✅ Check GitHub in your browser — your files should now appear in the repository.
+> ✅ Open GitHub in your browser and confirm your files appear in the repository before moving on.
 
 ---
 
-## How Commits Work Throughout This Project
+## How to Write a Good Commit Message
 
-At the end of **every Part**, you will commit your work. A good commit message describes *what you did and why*, not just "updated code." Examples:
+At the end of every Part you will commit your work. A commit message should describe *what you did*, not just that you did something.
 
-| Weak message | Strong message |
-|---|---|
-| `changes` | `Part 1: window and widgets set up, layout uses Pack` |
-| `added stuff` | `Part 2: tab navigation added with Grid layout in timer frame` |
-| `done` | `Part 4: accessibility fixes — contrast improved, input validation added` |
+| Weak | Strong |
+|------|--------|
+| `changes` | `Part 1: window and widgets set up, using pack layout` |
+| `updated stuff` | `Part 2: tabs added, grid layout used in timer frame` |
+| `done` | `Part 4: contrast fixed, input validation added after audit` |
 
-You will be assessed on your commit history, so make them count.
+Your commit history is part of your grade — make the messages meaningful.
 
 ---
 
 ## Part 1: The Window & Widgets
 
-**Outcomes covered:** Explain the characteristics and capabilities of Windows apps · Add widgets to a GUI using Tkinter
-
 ### Background
 
-Desktop apps are different from websites and scripts in an important way: they are **event-driven**. Nothing happens until the user does something — clicks a button, types in a field, selects an item. Your code doesn't run top-to-bottom; it waits, listens, and responds.
+Desktop apps behave differently from scripts or websites. A script runs top-to-bottom and exits. A website lives in a browser and reloads. A desktop app:
 
-Before you write code, take 5 minutes to think about a desktop app you use regularly. Notice:
-- It has a persistent window that stays open
-- It remembers state (what you typed, what you selected)
-- Every interaction triggers something
-- It gives you feedback when something goes wrong
+- Opens a **persistent window** that stays open until the user closes it
+- Is **event-driven** — nothing happens until the user does something (clicks, types, selects)
+- **Remembers state** — what you typed, what you added to a list, whether a timer is running
+- **Gives feedback** — it tells you when something goes wrong instead of crashing silently
 
-Your app will do all of these things by the end of this project.
+Before writing any code, spend a few minutes with a desktop app you use regularly and notice these qualities. Your app will have all of them by the end of this project.
 
 ### Instructions
 
-Open `app.py`. If you're using the scaffold, the basic window structure is already imported — your job is to customize it and add widgets. If you're building from scratch, create your window from the ground up.
+Open `app.py` and read through it top to bottom before changing anything. You'll see the overall structure: one class, an `__init__` method that sets everything up, and separate methods for each feature.
+
+**Part 1 focuses on `setup_task_manager()`.** The basic structure is already there — your job is to make sure you understand each line, customize it for your app (Path B: replace it with your own first feature), and fill in the comment block at the top of the file.
 
 **By the end of Part 1, your app must have:**
 
-- [ ] A working window with a meaningful title and appropriate starting size
+- [ ] A working window with a meaningful title and appropriate size
+- [ ] The comment block at the top of `app.py` filled in (your name, project name, description)
 - [ ] At least one `Label`
-- [ ] At least one `Button` that does something when clicked (even just prints to console for now)
-- [ ] At least one `Entry` field (text input)
+- [ ] At least one `Button` that responds to a click
+- [ ] At least one `Entry` field for text input
 - [ ] At least one `Listbox` or `Text` widget
-- [ ] Widgets arranged using at least one layout manager (`pack`, `grid`, or `place`)
-- [ ] A short comment block at the top of `app.py` describing what your app does and who made it
+- [ ] Widgets laid out using at least one layout manager (`pack` or `grid`)
+- [ ] The app runs without errors
 
-**Path A students:** Follow the structure in `app.py` — set up the main window and populate the Task Manager tab with the widgets listed above.
+**Path B students:** Your first feature should match what you described in `my_app_spec.md`. Build that instead of the Task Manager — same widget requirements apply.
 
-**Path B students:** Your widgets should match your spec in `my_app_spec.md`. If your spec needs updating based on what you're learning, update the spec file too and include it in your commit.
-
-### Commit Checklist
-When Part 1 is complete:
+### End of Part 1 — Commit
 
 **Replit:**
-1. Open the Git panel
-2. Stage all changed files
-3. Write your commit message (describe what you built in Part 1)
-4. Click Commit & Push
+1. Open the Git panel, stage your changed files
+2. Write a commit message describing what you built
+3. Commit & Push
 
 **Command line:**
 ```bash
@@ -144,44 +151,49 @@ git push origin main
 
 ## Part 2: Layouts & Navigation
 
-**Outcomes covered:** Create advanced GUIs using different layouts in Tkinter
-
 ### Background
 
-Tkinter has three layout managers, and experienced developers use them deliberately:
+Tkinter has three layout managers. You should choose based on what you're laying out:
 
-- **`pack()`** — Simple and fast. Stacks widgets vertically or horizontally. Good for toolbars, button rows, and simple frames.
-- **`grid()`** — Places widgets in rows and columns. Best for forms, calculators, anything that lines up neatly.
-- **`place()`** — Pixel-precise positioning. Rarely the right choice, but useful for overlapping elements or custom designs.
+- **`pack()`** — Stacks widgets in a line (top-to-bottom or left-to-right). Fast and simple. Good for headers, button rows, and vertically-stacked sections.
+- **`grid()`** — Arranges widgets in rows and columns. Best for forms and anything that needs to line up horizontally.
+- **`place()`** — Pixel-precise positioning. Rarely the right choice — avoid it unless you have a specific reason.
 
-You should use at least **two different layout managers** in your app, in different frames, for a reason you can explain.
+A `ttk.Notebook` gives you a tabbed interface, which is the cleanest way to organize multiple features in one window without making it feel cluttered.
 
-A `ttk.Notebook` gives you a tabbed interface — the cleanest way to organize multiple features in one window without overwhelming the user.
+> **Important rule:** Never mix `pack()` and `grid()` inside the *same frame*. You can use different layout managers in different frames — that's actually the goal.
 
 ### Instructions
 
+Look at `create_menu()` and `create_tabs()` in `app.py` — the tab structure is already set up. Your job in Part 2 is to:
+
+1. Rename the tabs to match your app's features
+2. Make sure `setup_study_timer()` is populated with widgets (the structure is provided — read through it and make sure you understand how grid is being used differently from pack in the Task Manager tab)
+3. Add a meaningful placeholder to the third tab
+4. Update the About dialog in `show_about()` with your name and app description
+
 **By the end of Part 2, your app must have:**
 
-- [ ] A `ttk.Notebook` with at least **3 tabs** (or equivalent navigation if Path B calls for something different)
+- [ ] A `ttk.Notebook` with at least 3 named tabs
 - [ ] `grid()` used in at least one frame
 - [ ] `pack()` used in at least one frame
-- [ ] A menu bar with at least **File** and **Help** menus
-  - File menu: Save, Load, Exit
-  - Help menu: About (shows a messagebox with your app name and your name)
-- [ ] All tabs visible and switchable (content can still be placeholder for now)
-- [ ] A comment in your code explaining *why* you chose each layout manager where you used it
+- [ ] A menu bar with File (Save, Load, Exit) and Help (About) menus
+- [ ] The About dialog updated with your name and app description
+- [ ] A comment in your code explaining why you used each layout manager where you did
+- [ ] All tabs visible and clickable (content can still be placeholder in tab 3)
 
-### Commit Checklist
+**Path B students:** Replace the provided tab content with your own features. The layout requirements (grid in one frame, pack in another, menu bar) still apply.
+
+### End of Part 2 — Commit
 
 **Replit:**
-1. Stage changes in the Git panel
-2. Commit message should describe your layout decisions specifically
-3. Commit & Push
+1. Stage changes, write a commit message that mentions your layout choices
+2. Commit & Push
 
 **Command line:**
 ```bash
 git add app.py
-git commit -m "Part 2: [describe navigation and layout choices]"
+git commit -m "Part 2: [describe your tabs and layout decisions]"
 git push origin main
 ```
 
@@ -189,45 +201,44 @@ git push origin main
 
 ## Part 3: Functional Code Behind the GUI
 
-**Outcomes covered:** Develop functional code behind a graphical user interface in Tkinter
-
 ### Background
 
-So far your app looks like something. Now it needs to *do* something. This is where the real programming lives — connecting user actions to logic, storing data, and making the app actually useful.
+So far your app looks like something. Now it needs to *do* something. This part is where most of your logic lives — connecting buttons to real actions, validating what users type, and saving data so the app remembers things between sessions.
 
-You'll also add **data persistence**: the app saves its state to a file when the user saves, and loads it back when the app opens. This is what separates a real app from a demo.
+The timer introduces a Tkinter pattern worth understanding: **`root.after()`**. Because Tkinter's event loop is always running (waiting for clicks, keypresses, etc.), you can't use a regular `time.sleep()` loop for a countdown — it would freeze the whole window. Instead, `root.after(1000, some_function)` tells Tkinter: *"wait 1 second, then call this function."* The function then schedules itself again, creating a countdown that doesn't block anything else. The `_tick()` method in `app.py` shows exactly how this works — read through it carefully before trying to modify it.
 
 ### Instructions
 
 **By the end of Part 3, your app must have:**
 
-- [ ] At least **2 fully functional features** (not placeholders) with real logic behind them
-- [ ] At least **5 event handlers** total (button clicks, key presses, listbox selections, etc.)
-- [ ] **Input validation** — if a user submits an empty field or invalid input, the app catches it and shows a helpful `messagebox` warning rather than crashing
-- [ ] **Save functionality** — exports app data to a `.json` file using `filedialog.asksaveasfilename()`
-- [ ] **Load functionality** — reads that `.json` file back in and restores the app state
-- [ ] All functions have a one-line docstring describing what they do
+- [ ] At least **2 fully functional features** (Task Manager and Study Timer for Path A — or your chosen two features for Path B)
+- [ ] At least **5 event handlers** in total (button clicks, key bindings, listbox selections, etc.)
+- [ ] **Input validation** on every user input — empty fields and invalid values should show a `messagebox` warning, never a crash
+- [ ] **Save** functionality — writes app data to a `.json` file using `filedialog`
+- [ ] **Load** functionality — reads that `.json` file back and restores app state
+- [ ] Every method has a one-line docstring describing what it does
 
-**Path A — the two features to complete:**
+**Path A — what to implement:**
 
-1. **Task Manager:** Add task, mark complete (strikethrough or moved to "Done" list), delete task, tasks save/load from JSON
-2. **Study Timer:** Countdown timer (user sets minutes), starts/pauses/resets, displays time remaining, plays a sound or shows a popup when done
+- `add_task()`, `complete_task()`, `delete_task()` — all three Task Manager actions fully working
+- `start_timer()`, `pause_timer()`, `reset_timer()` — timer working with start/pause/resume/reset behavior
+- `save_data()` and `load_data()` — saves and restores task list (and timer minutes if you want)
 
-*The Grade Calculator tab can remain as a polished placeholder for now — you'll have time to extend it if you finish early.*
+The Grade Calculator tab can remain a placeholder for now. If you finish early, it's a great stretch goal.
 
-**Path B:** Complete whichever two features are highest priority in your spec. Document in a comment what remains to be built.
+**Path B:** Implement whichever two features are highest priority in your spec. Leave a comment in the code noting what's still to be built.
 
-### Commit Checklist
+### End of Part 3 — Commit
 
 **Replit:**
-1. Stage changes
-2. Write a detailed commit message — name the features you completed
+1. Stage all changes
+2. Write a commit message that names the specific features you completed
 3. Commit & Push
 
 **Command line:**
 ```bash
 git add app.py
-git commit -m "Part 3: [list the features you implemented]"
+git commit -m "Part 3: [list what you implemented]"
 git push origin main
 ```
 
@@ -235,52 +246,58 @@ git push origin main
 
 ## Part 4: Ethical Design & Code Review
 
-**Outcomes covered:** Discuss the legal and ethical components of user interfaces [Inclusive] · Participate in a peer code review
+---
 
 ### Part 4A: Code Review
 
-Open `code_review_sample.py` and run it. Read through the code carefully. Then write your review in a file called `code_review.txt` (create this file in your project).
+Open `code_review_sample.py` and run it. Read through the entire file carefully. Then create a new file called `code_review.txt` in your project and write your review there.
 
-Your review must address all of the following:
+Your review must cover all five sections:
 
-**1. What does this code do?**
-In 2-3 sentences, describe what the app is supposed to do.
+**1. What does this app do?**
+In 2–3 sentences, describe what the app is supposed to do from a user's perspective.
 
 **2. What works well?**
 Identify at least **2 specific things** the code does correctly or clearly. Reference line numbers.
 
 **3. What could break?**
-Identify at least **2 things** that could cause errors or unexpected behavior. Describe exactly what a user would have to do to trigger the problem.
+Identify at least **2 things** that could cause an error or unexpected behavior. Describe exactly what a user would need to do to trigger the problem.
 
 **4. Code quality issues**
-Identify at least **2 issues** with readability or style — variable names, missing comments, repeated code, etc.
+Identify at least **2 issues** with readability or style — things like variable names, missing comments, duplicated logic, or unclear structure.
 
-**5. Your concrete suggestion**
-Pick the single most important problem and write the corrected code. Show the before and after.
+**5. One concrete fix**
+Pick the single most important problem you found and write the corrected code. Show the before and after side by side.
 
-> A good code review is specific, kind, and actionable. Vague feedback like "this is confusing" isn't useful. "Line 23: the variable `x` should be named `task_input` so its purpose is clear" is useful.
+> A useful code review is specific and actionable. "This is confusing" isn't helpful. "Line 8: the function name `b` should be `add_note` so its purpose is immediately clear" is helpful.
+
+---
 
 ### Part 4B: Accessibility & Ethical UI Audit
 
-Read through the following principles, then audit your own app against them.
+Read through these principles, then look critically at your own app.
 
-**Key principles:**
-- **Color contrast** — Text and background should have sufficient contrast. WCAG AA standard requires a 4.5:1 ratio for normal text. In practice: don't put light grey text on a white background.
-- **Keyboard navigation** — Can a user operate your app without a mouse? Tab should move between fields, Enter should activate buttons.
-- **Clear language** — Button labels and error messages should be plain English. "Submit" is better than "Execute." "Please enter a task name" is better than "Error 001."
-- **Error handling** — Never let the app crash silently. Always tell the user what went wrong and how to fix it.
-- **Data privacy** — Where is user data stored? Who can access it? Your app saves to a local file — note that this means data stays on the user's machine, which is good.
+**Contrast** — Text needs to be readable against its background. Light grey on white fails. Dark text on a light background is the safe default.
 
-**Deliverable:** Add a section to `code_review.txt` called `MY APP AUDIT` and document:
-- [ ] 3 specific accessibility or ethical issues you found in your own app
-- [ ] The change you made to fix each one (with before/after code snippets if relevant)
-- [ ] One thing your app does *well* from an ethical/inclusive design standpoint
+**Keyboard navigation** — Can a user operate your whole app using only the keyboard? Tab should move between fields, Enter should activate the focused button.
 
-### Commit Checklist
+**Clear language** — Labels and error messages should be plain and specific. "Please enter a task name" is better than "Error." "Save" is better than "Commit changes to disk."
+
+**Error handling** — The app should never crash on bad input. It should always explain what went wrong and how to fix it.
+
+**Data privacy** — Think about where your data goes. Your app saves to a local file the user chooses — that means data stays on their machine, which is good. Note this in your audit.
+
+**Deliverable:** Add a section to `code_review.txt` titled `MY APP AUDIT` and include:
+
+- [ ] One specific issue you found in your own app related to the principles above
+- [ ] What you changed to fix it (show before/after code if relevant)
+- [ ] One thing your app already does well from an ethical or inclusive design standpoint
+
+### End of Part 4 — Commit
 
 **Replit:**
-1. Stage `app.py` (with your fixes) and `code_review.txt`
-2. Commit message should mention both the review and the fixes
+1. Stage `app.py` (with your fixes applied) and `code_review.txt`
+2. Commit message should mention both the review and your fixes
 3. Commit & Push
 
 **Command line:**
@@ -292,27 +309,21 @@ git push origin main
 
 ---
 
-## Part 5: Final Polish & Career Plan
+## Part 5: Final Polish & Dev Reflection
 
-**Outcomes covered:** Select and use appropriate communication tools for programmers · Create a personal career plan [Self-Aware]
+Use the first part of this session to finish anything incomplete and fix any remaining bugs. Then add a section to `code_review.txt` (or a new `dev_log.txt`) called `DEV REFLECTION` and answer these three questions:
 
-### Part 5A: Final Polish & Communication Reflection
+1. What communication and collaboration tools would a real development team use on a project like this? Name at least **3** (e.g. GitHub Issues, pull requests, Slack, project boards) and describe what each is used for.
 
-Spend the first portion of this session finishing anything incomplete, fixing any remaining bugs, and making your app feel polished. Then write a short section at the top of your `code_review.txt` (or a new file `dev_log.txt`) that answers:
+2. Look at your Git commit history on GitHub. Does it tell the story of how this project developed? What would you do differently with your commits next time?
 
-1. What communication tools would a real development team use on a project like this? Name at least 3 (e.g. GitHub Issues, Slack, pull requests, project boards) and briefly describe what each is used for.
-2. Look at your Git commit history. Does it tell the story of how your project developed? What would you do differently with your commits next time?
-3. What was the hardest part of this project technically? How did you work through it?
-
-### Part 5B: Career Plan
-
-Open `career_plan.txt` and respond to each prompt. This is a personal reflection — there are no wrong answers, only shallow ones. Write in full sentences.
+3. What was the hardest technical problem you ran into? What did you try, and what eventually worked?
 
 ### Final Commit
 
 **Replit:**
 1. Stage all remaining files
-2. Final commit message: `Part 5: project complete — [one sentence about what you built]`
+2. Write a final commit message summarizing the whole project in one sentence
 3. Commit & Push
 
 **Command line:**
@@ -328,18 +339,16 @@ Then share your GitHub repository link with your instructor.
 
 ## Grading Overview
 
-| Part | Focus | Points |
-|------|-------|--------|
-| Part 1 | Window & Widgets | 15 |
-| Part 2 | Layouts & Navigation | 20 |
-| Part 3 | Functional Code | 30 |
-| Part 4A | Code Review | 15 |
-| Part 4B | Ethical UI Audit | 10 |
-| Part 5A | Dev Communication Reflection | 5 |
-| Git History | Quality of commits across all parts | 5 |
-| **Total** | | **100** |
-
-*Career Plan (`career_plan.txt`) is submitted as a separate assignment.*
+| Component | Points |
+|-----------|--------|
+| Part 1 — Window & Widgets | 15 |
+| Part 2 — Layouts & Navigation | 20 |
+| Part 3 — Functional Code | 30 |
+| Part 4A — Code Review | 15 |
+| Part 4B — Ethical UI Audit | 10 |
+| Part 5 — Dev Reflection | 5 |
+| Git commit history (quality across all parts) | 5 |
+| **Total** | **100** |
 
 ---
 
@@ -347,14 +356,15 @@ Then share your GitHub repository link with your instructor.
 
 | Widget | What it's for |
 |--------|--------------|
-| `tk.Label` | Display text or images |
+| `tk.Label` | Display text |
 | `tk.Button` | Clickable button |
 | `tk.Entry` | Single-line text input |
-| `tk.Text` | Multi-line text input/display |
+| `tk.Text` | Multi-line text area |
 | `tk.Listbox` | Scrollable list of items |
-| `ttk.Notebook` | Tabbed interface |
-| `ttk.Frame` | Container for grouping widgets |
+| `tk.Scrollbar` | Attach to a Listbox or Text widget |
+| `tk.Frame` | Invisible container for grouping widgets |
 | `tk.Menu` | Menu bar |
-| `tk.Scrollbar` | Scrollbar (attach to Text or Listbox) |
+| `ttk.Notebook` | Tabbed interface |
+| `ttk.Frame` | Styled container (use inside Notebook tabs) |
 | `messagebox` | Popup alerts and confirmations |
 | `filedialog` | Open/save file dialogs |
