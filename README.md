@@ -5,23 +5,9 @@
 
 ## Overview
 
-In this project you will build a **desktop application using Python and Tkinter** — from a blank window all the way to a polished, functional app. Each Part builds directly on the last, so by the end you have one complete project you can be proud of.
+In this project you will extend a working Python desktop application by designing and building a brand new feature of your own. You'll read existing code to understand how it works, then apply those same patterns to build something yourself from scratch.
 
-You will also practice real-world developer habits: using **Git and GitHub** to track your progress, writing a **code review** of someone else's work, and reflecting on your own **career direction** as a programmer.
-
----
-
-## Choose Your Path
-
-Pick one before you write any code.
-
-### 🗂 Path A: Personal Productivity App
-Follow the provided spec. You will build a productivity app with a task manager, study timer, and grade calculator. The starter code in `app.py` gives you a working structure to build from — read through it before starting Part 1.
-
-### 🎨 Path B: Your Own App
-Design your own app. It must hit all the same technical requirements listed in each Part, but the theme, features, and purpose are entirely up to you. Fill out `my_app_spec.md` before you begin coding — this is your design document and your first Git commit.
-
-> **Not sure?** Go with Path A. You can always personalize it with your own colors, fonts, and feature ideas as you go.
+You will also practice real-world developer habits: using **Git and GitHub** to track your work, writing a **code review** of someone else's code, and reflecting on your own career direction as a programmer.
 
 ---
 
@@ -30,224 +16,238 @@ Design your own app. It must hit all the same technical requirements listed in e
 | File | What it is |
 |------|-----------|
 | `README.md` | This document — read it before anything else |
-| `app.py` | Your main working file — you'll build in this across Parts 1–4 |
-| `code_review_sample.py` | A provided code sample you'll review in Part 4 |
-| `my_app_spec.md` | Design document template — Path B students fill this out first |
+| `app.py` | The main app — you will read this, then extend it |
+| `code_review_sample.py` | A provided code sample you'll review in Part 3 |
+| `career_plan.txt` | Career reflection prompts for Part 4 |
 
 ---
 
-## Git Setup — Do This Before Part 1
+## Git Setup — Do This First
 
-You will use Git and GitHub to save your progress at the end of every Part. This mirrors how real developers track their work.
+You will use Git and GitHub to save your progress at the end of every Part. This mirrors how real development teams track their work.
 
 ### Step 1: Create a GitHub Account
 Go to [github.com](https://github.com) and sign up for a free account if you don't have one.
 
-### Step 2: Create a New Repository
-- Click the **+** icon → **New repository**
-- Name it something like `productivity-app` or your own app's name
-- Set visibility to **Public**
-- Check **"Add a README file"**
-- Click **Create repository**
+### Step 2: Fork This Repository
+You are reading this README inside the project repository. Fork it so you have your own personal copy to work in.
 
-### Step 3: Connect to Your Project
+1. Click **Fork** in the top-right corner of this page on GitHub
+2. Leave all settings as-is and click **Create fork**
+
+Your fork lives at `github.com/YOUR_USERNAME/REPO_NAME`. Any changes you make stay in your fork and don't affect the original.
+
+### Step 3: Import Your Fork into Replit
+
+**Option A — Rapid import (quickest):**
+In your browser, go to:
+```
+https://replit.com/github.com/YOUR_USERNAME/REPO_NAME
+```
+Replace `YOUR_USERNAME` and `REPO_NAME` with your actual GitHub username and the repo name. Replit will detect the Python project and set it up automatically.
+
+**Option B — Guided import:**
+1. Go to [replit.com/import](https://replit.com/import) and sign in
+2. Select **GitHub**
+3. Connect your GitHub account if prompted
+4. Find your forked repository and click **Import**
+
+Either way, Replit will clone your fork and connect to it — you'll commit and push from Replit's Git panel throughout this project.
+
+### Step 4: Verify Everything Works
+1. Click **Run** to launch `app.py` and confirm the app opens without errors
+2. Click the **Git** icon in the left sidebar — your files should appear under version control
+3. Explore all three tabs and the menu before touching any code
+
+### How to Commit at the End of Each Part
 
 **On Replit:**
-1. Open your Repl and look for the **Git** icon in the left sidebar (it looks like a branch)
-2. Click **"Connect to GitHub"** and follow the authorization steps
-3. Select **"Connect to an existing GitHub repository"** and choose the one you just created
-4. Your project is now linked — you'll commit and push from this panel throughout the project
+1. Click the **Git** icon in the left sidebar
+2. Click **+** next to each changed file to stage it
+3. Type a commit message in the box (see guidance below)
+4. Click **Commit & Push**
 
 **On the command line (local development):**
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
-```
-
-### Step 4: Add Your Project Files
-Upload or copy `app.py`, `code_review_sample.py`, `my_app_spec.md`, and `career_plan.txt` into your Repl or local folder.
-
-### Step 5: Make Your First Commit
-
-**On Replit:**
-1. Open the Git panel — you'll see your new files listed under "Changes"
-2. Click **+** next to each file to stage it
-3. Type a commit message: `Initial commit: project files added`
-4. Click **Commit & Push**
-
-**On the command line:**
-```bash
 git add .
-git commit -m "Initial commit: project files added"
+git commit -m "your message here"
 git push origin main
 ```
 
-> ✅ Open GitHub in your browser and confirm your files appear in the repository before moving on.
+### Writing a Good Commit Message
 
----
-
-## How to Write a Good Commit Message
-
-At the end of every Part you will commit your work. A commit message should describe *what you did*, not just that you did something.
+A commit message should describe *what you did*, not just that you did something.
 
 | Weak | Strong |
 |------|--------|
-| `changes` | `Part 1: window and widgets set up, using pack layout` |
-| `updated stuff` | `Part 2: tabs added, grid layout used in timer frame` |
-| `done` | `Part 4: contrast fixed, input validation added after audit` |
+| `changes` | `Part 1: renamed app, read through all methods` |
+| `added stuff` | `Part 2: grade calculator tab complete with weighted average logic` |
+| `done` | `Part 3: code review written, contrast and validation fixed in my tab` |
 
-Your commit history is part of your grade — make the messages meaningful.
+Your commit history is part of your grade — make the messages count.
 
 ---
 
-## Part 1: The Window & Widgets
+## Part 1: Read the Code & Set Up
+
+**Outcomes:** Explain the characteristics and capabilities of Windows apps · Add widgets to a GUI using Tkinter
 
 ### Background
 
-Desktop apps behave differently from scripts or websites. A script runs top-to-bottom and exits. A website lives in a browser and reloads. A desktop app:
+Before you write a single line of code, you need to understand what's already here. Open `app.py` and read through the entire file top to bottom. Don't skim — you'll be building something that has to fit into this structure, so understanding it now saves you a lot of confusion later.
 
-- Opens a **persistent window** that stays open until the user closes it
-- Is **event-driven** — nothing happens until the user does something (clicks, types, selects)
-- **Remembers state** — what you typed, what you added to a list, whether a timer is running
-- **Gives feedback** — it tells you when something goes wrong instead of crashing silently
+As you read, look for answers to these questions:
 
-Before writing any code, spend a few minutes with a desktop app you use regularly and notice these qualities. Your app will have all of them by the end of this project.
+- What does the `__init__` method do, and why does every setup call happen there?
+- How does `setup_task_manager()` use both `pack` and `grid` in the same tab? Why are they in separate frames?
+- How does `add_task()` know what the user typed? Trace it from the button click all the way to the listbox.
+- What does `root.after(1000, self._tick)` do, and why can't you just use `time.sleep()` instead?
+- What does `save_data()` actually write to disk? Open the JSON file after saving and look at it.
+
+Desktop apps behave differently from scripts or websites in a few important ways:
+- They are **persistent** — the window stays open until the user closes it
+- They are **event-driven** — nothing happens until the user does something
+- They **remember state** — data lives in variables while the app runs, and can be saved to a file
+- They **give feedback** — a well-built app never crashes silently; it always tells the user what went wrong
 
 ### Instructions
 
-Open `app.py` and read through it top to bottom before changing anything. You'll see the overall structure: one class, an `__init__` method that sets everything up, and separate methods for each feature.
+Once you've read through the code and can answer the questions above, do the following:
 
-**Part 1 focuses on `setup_task_manager()`.** The basic structure is already there — your job is to make sure you understand each line, customize it for your app (Path B: replace it with your own first feature), and fill in the comment block at the top of the file.
-
-**By the end of Part 1, your app must have:**
-
-- [ ] A working window with a meaningful title and appropriate size
-- [ ] The comment block at the top of `app.py` filled in (your name, project name, description)
-- [ ] At least one `Label`
-- [ ] At least one `Button` that responds to a click
-- [ ] At least one `Entry` field for text input
-- [ ] At least one `Listbox` or `Text` widget
-- [ ] Widgets laid out using at least one layout manager (`pack` or `grid`)
-- [ ] The app runs without errors
-
-**Path B students:** Your first feature should match what you described in `my_app_spec.md`. Build that instead of the Task Manager — same widget requirements apply.
+- [ ] Fill in the comment block at the very top of `app.py` — your name, the project name, and a 2–3 sentence description of the app
+- [ ] Update `self.root.title(...)` with a name that reflects what your version of the app will be
+- [ ] Update the About dialog in `show_about()` with your name and a short description
+- [ ] Run the app and try every feature — add tasks, complete them, delete them, run the timer, save and load data. Make sure you understand what every button does before moving on.
 
 ### End of Part 1 — Commit
 
-**Replit:**
-1. Open the Git panel, stage your changed files
-2. Write a commit message describing what you built
-3. Commit & Push
-
-**Command line:**
-```bash
-git add app.py
-git commit -m "Part 1: [describe what you built]"
-git push origin main
-```
+Stage your changes and commit with a message describing what you read and what you changed.
 
 ---
 
-## Part 2: Layouts & Navigation
+## Part 2: Build Your Feature
 
-### Background
+**Outcomes:** Create advanced GUIs using different layouts in Tkinter · Develop functional code behind a graphical user interface in Tkinter
 
-Tkinter has three layout managers. You should choose based on what you're laying out:
+### The Task
 
-- **`pack()`** — Stacks widgets in a line (top-to-bottom or left-to-right). Fast and simple. Good for headers, button rows, and vertically-stacked sections.
-- **`grid()`** — Arranges widgets in rows and columns. Best for forms and anything that needs to line up horizontally.
-- **`place()`** — Pixel-precise positioning. Rarely the right choice — avoid it unless you have a specific reason.
+The third tab — `tab_grades` — is currently a placeholder. Your job is to replace it with a fully working feature that you design and build yourself.
 
-A `ttk.Notebook` gives you a tabbed interface, which is the cleanest way to organize multiple features in one window without making it feel cluttered.
+Look at how the Task Manager and Study Timer tabs are built. Your feature needs to follow the same patterns:
 
-> **Important rule:** Never mix `pack()` and `grid()` inside the *same frame*. You can use different layout managers in different frames — that's actually the goal.
+- A `setup_` method that creates all the widgets and layout for your tab
+- Event handler methods that contain the actual logic
+- Input validation — bad or empty input should show a `messagebox` warning, never a crash
+- At least one integration with `save_data()` and `load_data()` so your feature's data persists
 
-### Instructions
+You will need to:
+1. Rename `tab_grades` and the notebook tab label to match your feature
+2. Replace `setup_grade_calculator()` with your own setup method (or rename and rewrite it)
+3. Write your event handler methods
+4. Add your data to the `save_data()` and `load_data()` methods
 
-Look at `create_menu()` and `create_tabs()` in `app.py` — the tab structure is already set up. Your job in Part 2 is to:
+### Choose a Feature
 
-1. Rename the tabs to match your app's features
-2. Make sure `setup_study_timer()` is populated with widgets (the structure is provided — read through it and make sure you understand how grid is being used differently from pack in the Task Manager tab)
-3. Add a meaningful placeholder to the third tab
-4. Update the About dialog in `show_about()` with your name and app description
+Pick one of the following, or propose your own to your instructor first. Read all four descriptions before deciding — difficulty ratings are honest.
 
-**By the end of Part 2, your app must have:**
+---
 
-- [ ] A `ttk.Notebook` with at least 3 named tabs
-- [ ] `grid()` used in at least one frame
-- [ ] `pack()` used in at least one frame
-- [ ] A menu bar with File (Save, Load, Exit) and Help (About) menus
-- [ ] The About dialog updated with your name and app description
-- [ ] A comment in your code explaining why you used each layout manager where you did
-- [ ] All tabs visible and clickable (content can still be placeholder in tab 3)
+#### 🧮 Grade Calculator
+**Difficulty: ★★☆☆**
 
-**Path B students:** Replace the provided tab content with your own features. The layout requirements (grid in one frame, pack in another, menu bar) still apply.
+Build a tool where the user enters assignment names, scores, and weights, and the app calculates a weighted average grade.
+
+**What you'll need:**
+- Entry fields for assignment name, score (e.g. `88`), and weight (e.g. `20` for 20%)
+- An Add button that appends the entry to a display list
+- A Listbox or Text widget showing all added assignments
+- A Calculate button that computes the weighted average and displays the result
+- Validation: score must be 0–100, weight must be a positive number, name can't be empty
+- Save/load: the list of assignments should persist between sessions
+
+**Hint on the math:** `weighted average = sum of (score × weight) / sum of all weights`
+
+---
+
+#### 📝 Notes
+**Difficulty: ★★☆☆**
+
+Build a note-taking tab where the user can write, save, and reload named notes.
+
+**What you'll need:**
+- An Entry field for the note title
+- A `Text` widget for the note body (this is different from `Entry` — look it up)
+- Buttons to Save Note, Load a selected note, and Clear the current note
+- A Listbox or OptionMenu showing the titles of all saved notes
+- Validation: title and body can't both be empty when saving
+- Save/load: notes persist as a dictionary of `{title: body}` in your JSON file
+
+**Hint:** `Text` widgets use `.get("1.0", tk.END)` to retrieve their contents — not `.get()` like Entry.
+
+---
+
+#### 📅 Task Calendar
+**Difficulty: ★★★☆**
+
+Extend the existing Task Manager by adding due dates to tasks, and build a calendar view that shows tasks organized by date.
+
+**What you'll need:**
+- Modify `add_task()` to also accept a due date (a simple `YYYY-MM-DD` Entry field is fine)
+- A calendar view in your new tab — at minimum, a sorted list of upcoming tasks by due date
+- A way to visually distinguish overdue tasks (tasks whose date is before today)
+- Validation: date must be a valid format; invalid dates should show a warning
+- Save/load: dates must be saved alongside task names
+
+**Hint:** `from datetime import datetime` — use `datetime.strptime(date_string, "%Y-%m-%d")` to convert a string into a date object you can compare against `datetime.today()`.
+
+---
+
+#### 🎮 Focus Friend
+**Difficulty: ★★★★**
+
+Build a mini-game that rewards the user for staying productive. Points are earned by completing tasks and finishing timer sessions.
+
+**What you'll need:**
+- A points display and level indicator that update in real time
+- Points awarded for completing a task (e.g. +10) and finishing a timer session (e.g. +25)
+- A level-up system (e.g. every 100 points = new level) with a congratulations popup
+- This feature must coordinate with the other tabs — `complete_task()` and the timer's finish condition both need to call into your feature when triggered
+- Save/load: points and level persist between sessions
+
+**Hint:** Because this feature reaches into other tabs' logic, study how `complete_task()` and `_tick()` work before writing a single line. You'll be adding a call to a new method (e.g. `self.award_points(10)`) inside those existing methods.
+
+---
+
+### Requirements Checklist
+
+Regardless of which feature you chose, your tab must have:
+
+- [ ] A renamed tab label that matches your feature
+- [ ] A `setup_` method containing all widget and layout code for your tab
+- [ ] At least **2 different widget types** not already used in your tab (check the quick reference at the bottom)
+- [ ] `grid()` or `pack()` used deliberately — add a comment explaining your layout choice
+- [ ] At least **2 event handler methods** with working logic
+- [ ] Input validation on all user input — no crashes on empty or invalid values
+- [ ] Your feature's data included in `save_data()` and loaded back in `load_data()`
+- [ ] Every new method has a one-line docstring
+
+### Stretch Goal: Add a Menu Item
+
+Once your feature is working, add a menu item to the existing File or Help menu that does something useful for your feature — for example, "Clear All Notes", "Reset Score", or "Export Tasks". Look at `create_menu()` to see how existing menu items are structured, then add your own.
 
 ### End of Part 2 — Commit
 
-**Replit:**
-1. Stage changes, write a commit message that mentions your layout choices
-2. Commit & Push
-
-**Command line:**
-```bash
-git add app.py
-git commit -m "Part 2: [describe your tabs and layout decisions]"
-git push origin main
-```
+Stage all your changes and write a commit message that names your feature and briefly describes what you implemented.
 
 ---
 
-## Part 3: Functional Code Behind the GUI
+## Part 3: Ethical Design & Code Review
 
-### Background
-
-So far your app looks like something. Now it needs to *do* something. This part is where most of your logic lives — connecting buttons to real actions, validating what users type, and saving data so the app remembers things between sessions.
-
-The timer introduces a Tkinter pattern worth understanding: **`root.after()`**. Because Tkinter's event loop is always running (waiting for clicks, keypresses, etc.), you can't use a regular `time.sleep()` loop for a countdown — it would freeze the whole window. Instead, `root.after(1000, some_function)` tells Tkinter: *"wait 1 second, then call this function."* The function then schedules itself again, creating a countdown that doesn't block anything else. The `_tick()` method in `app.py` shows exactly how this works — read through it carefully before trying to modify it.
-
-### Instructions
-
-**By the end of Part 3, your app must have:**
-
-- [ ] At least **2 fully functional features** (Task Manager and Study Timer for Path A — or your chosen two features for Path B)
-- [ ] At least **5 event handlers** in total (button clicks, key bindings, listbox selections, etc.)
-- [ ] **Input validation** on every user input — empty fields and invalid values should show a `messagebox` warning, never a crash
-- [ ] **Save** functionality — writes app data to a `.json` file using `filedialog`
-- [ ] **Load** functionality — reads that `.json` file back and restores app state
-- [ ] Every method has a one-line docstring describing what it does
-
-**Path A — what to implement:**
-
-- `add_task()`, `complete_task()`, `delete_task()` — all three Task Manager actions fully working
-- `start_timer()`, `pause_timer()`, `reset_timer()` — timer working with start/pause/resume/reset behavior
-- `save_data()` and `load_data()` — saves and restores task list (and timer minutes if you want)
-
-The Grade Calculator tab can remain a placeholder for now. If you finish early, it's a great stretch goal.
-
-**Path B:** Implement whichever two features are highest priority in your spec. Leave a comment in the code noting what's still to be built.
-
-### End of Part 3 — Commit
-
-**Replit:**
-1. Stage all changes
-2. Write a commit message that names the specific features you completed
-3. Commit & Push
-
-**Command line:**
-```bash
-git add app.py
-git commit -m "Part 3: [list what you implemented]"
-git push origin main
-```
+**Outcomes:** Discuss the legal and ethical components of user interfaces [Inclusive] · Participate in a peer code review
 
 ---
 
-## Part 4: Ethical Design & Code Review
-
----
-
-### Part 4A: Code Review
+### Part 3A: Code Review
 
 Open `code_review_sample.py` and run it. Read through the entire file carefully. Then create a new file called `code_review.txt` in your project and write your review there.
 
@@ -263,76 +263,56 @@ Identify at least **2 specific things** the code does correctly or clearly. Refe
 Identify at least **2 things** that could cause an error or unexpected behavior. Describe exactly what a user would need to do to trigger the problem.
 
 **4. Code quality issues**
-Identify at least **2 issues** with readability or style — things like variable names, missing comments, duplicated logic, or unclear structure.
+Identify at least **2 issues** with readability or style — variable names, missing comments, duplicated logic, unclear structure.
 
 **5. One concrete fix**
-Pick the single most important problem you found and write the corrected code. Show the before and after side by side.
+Pick the single most important problem and write the corrected code. Show the before and after.
 
 > A useful code review is specific and actionable. "This is confusing" isn't helpful. "Line 8: the function name `b` should be `add_note` so its purpose is immediately clear" is helpful.
 
 ---
 
-### Part 4B: Accessibility & Ethical UI Audit
+### Part 3B: Accessibility & Ethical UI Audit
 
-Read through these principles, then look critically at your own app.
+Read through these principles, then look critically at your own app — especially the tab you built.
 
 **Contrast** — Text needs to be readable against its background. Light grey on white fails. Dark text on a light background is the safe default.
 
-**Keyboard navigation** — Can a user operate your whole app using only the keyboard? Tab should move between fields, Enter should activate the focused button.
+**Keyboard navigation** — Can a user operate your whole app without a mouse? Tab should move between fields, Enter should activate the focused button.
 
-**Clear language** — Labels and error messages should be plain and specific. "Please enter a task name" is better than "Error." "Save" is better than "Commit changes to disk."
+**Clear language** — Labels and error messages should be plain and specific. "Please enter an assignment name" is better than "Error." "Save" is better than "Commit changes to disk."
 
 **Error handling** — The app should never crash on bad input. It should always explain what went wrong and how to fix it.
 
-**Data privacy** — Think about where your data goes. Your app saves to a local file the user chooses — that means data stays on their machine, which is good. Note this in your audit.
+**Data privacy** — Think about where user data goes. Your app saves to a local file the user chooses — data stays on their machine. Note this in your audit.
 
 **Deliverable:** Add a section to `code_review.txt` titled `MY APP AUDIT` and include:
 
-- [ ] One specific issue you found in your own app related to the principles above
-- [ ] What you changed to fix it (show before/after code if relevant)
+- [ ] 3 specific issues you found in your own app related to the principles above
+- [ ] What you changed to fix each one (before/after code if relevant)
 - [ ] One thing your app already does well from an ethical or inclusive design standpoint
 
-### End of Part 4 — Commit
+### End of Part 3 — Commit
 
-**Replit:**
-1. Stage `app.py` (with your fixes applied) and `code_review.txt`
-2. Commit message should mention both the review and your fixes
-3. Commit & Push
-
-**Command line:**
-```bash
-git add app.py code_review.txt
-git commit -m "Part 4: code review complete, accessibility fixes applied"
-git push origin main
-```
+Stage `app.py` (with your fixes applied) and `code_review.txt` and commit.
 
 ---
 
-## Part 5: Final Polish & Dev Reflection
+## Part 4: Final Polish & Dev Reflection
 
-Use the first part of this session to finish anything incomplete and fix any remaining bugs. Then add a section to `code_review.txt` (or a new `dev_log.txt`) called `DEV REFLECTION` and answer these three questions:
+**Outcomes:** Select and use appropriate communication tools for programmers
+
+Use the first part of this session to finish anything incomplete and fix remaining bugs. Then add a section called `DEV REFLECTION` to your `code_review.txt` and answer these three questions in full sentences:
 
 1. What communication and collaboration tools would a real development team use on a project like this? Name at least **3** (e.g. GitHub Issues, pull requests, Slack, project boards) and describe what each is used for.
 
 2. Look at your Git commit history on GitHub. Does it tell the story of how this project developed? What would you do differently with your commits next time?
 
-3. What was the hardest technical problem you ran into? What did you try, and what eventually worked?
+3. What was the hardest technical problem you ran into in Part 2? What did you try, and what eventually worked?
 
 ### Final Commit
 
-**Replit:**
-1. Stage all remaining files
-2. Write a final commit message summarizing the whole project in one sentence
-3. Commit & Push
-
-**Command line:**
-```bash
-git add .
-git commit -m "Part 5: project complete — [one sentence about what you built]"
-git push origin main
-```
-
-Then share your GitHub repository link with your instructor.
+Stage all remaining files and write a final commit message summarizing the whole project in one sentence. Then share your GitHub repository link with your instructor.
 
 ---
 
@@ -340,12 +320,11 @@ Then share your GitHub repository link with your instructor.
 
 | Component | Points |
 |-----------|--------|
-| Part 1 — Window & Widgets | 15 |
-| Part 2 — Layouts & Navigation | 20 |
-| Part 3 — Functional Code | 30 |
-| Part 4A — Code Review | 15 |
-| Part 4B — Ethical UI Audit | 10 |
-| Part 5 — Dev Reflection | 5 |
+| Part 1 — Code orientation & setup | 10 |
+| Part 2 — Feature implementation | 55 |
+| Part 3A — Code review | 15 |
+| Part 3B — Ethical UI audit | 10 |
+| Part 4 — Dev reflection | 5 |
 | Git commit history (quality across all parts) | 5 |
 | **Total** | **100** |
 
@@ -367,3 +346,6 @@ Then share your GitHub repository link with your instructor.
 | `ttk.Frame` | Styled container (use inside Notebook tabs) |
 | `messagebox` | Popup alerts and confirmations |
 | `filedialog` | Open/save file dialogs |
+| `tk.OptionMenu` | Dropdown selector |
+| `tk.Spinbox` | Numeric input with up/down arrows |
+| `tk.Checkbutton` | Checkbox |
