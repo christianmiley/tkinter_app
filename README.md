@@ -18,7 +18,6 @@ You will also practice real-world developer habits: using **Git and GitHub** to 
 | `README.md` | This document — read it before anything else |
 | `app.py` | The main app — you will read this, then extend it |
 | `code_review_sample.py` | A provided code sample you'll review in Part 3 |
-| `career_plan.txt` | Career reflection prompts for Part 4 |
 
 ---
 
