@@ -36,7 +36,7 @@ You are reading this README inside the project repository. Fork it so you have y
 
 Your fork lives at `github.com/YOUR_USERNAME/REPO_NAME`. Any changes you make stay in your fork and don't affect the original.
 
-### Step 3: Import Your Fork into Replit
+### Step 3: Import Your Fork into Replit OR Clone Locally
 
 **Option A — Rapid import (quickest):**
 In your browser, go to:
@@ -83,17 +83,13 @@ A commit message should describe *what you did*, not just that you did something
 | `added stuff` | `Part 2: grade calculator tab complete with weighted average logic` |
 | `done` | `Part 3: code review written, contrast and validation fixed in my tab` |
 
-Your commit history is part of your grade — make the messages count.
-
 ---
 
 ## Part 1: Read the Code & Set Up
 
-**Outcomes:** Explain the characteristics and capabilities of Windows apps · Add widgets to a GUI using Tkinter
-
 ### Background
 
-Before you write a single line of code, you need to understand what's already here. Open `app.py` and read through the entire file top to bottom. Don't skim — you'll be building something that has to fit into this structure, so understanding it now saves you a lot of confusion later.
+Before you write a single line of code, you need to understand what's already here. Open `app.py` and look through the entire file top to bottom.
 
 As you read, look for answers to these questions:
 
