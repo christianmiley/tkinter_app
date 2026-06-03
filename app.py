@@ -208,7 +208,7 @@ class MyApp:
 
         tk.Label(
             self.tab_grades,
-            text="Coming soon — build this after Parts 1-3 are complete.",
+            text="Coming soon — build this after Part 1 is complete.",
             font=("Arial", 11),
             fg="#888888"
         ).pack(pady=20)
