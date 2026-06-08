@@ -336,7 +336,7 @@ Read through these principles, then look critically at your own app — especial
 
 **Deliverable:** Add a section to `code_review.txt` titled `MY APP AUDIT` and include:
 
-- [ ] 3 specific issues you found in your own app related to the principles above
+- [ ] 1+ specific issues you found in your own app related to the principles above
 - [ ] What you changed to fix each one (before/after code if relevant)
 - [ ] One thing your app already does well from an ethical or inclusive design standpoint
 
